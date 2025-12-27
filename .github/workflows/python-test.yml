@@ -24,7 +24,7 @@ jobs:
 
       - name: Run lint (ruff)
         run: |
-          ruff src tests
+          ruff check src tests
 
       - name: Run tests
         run: |
