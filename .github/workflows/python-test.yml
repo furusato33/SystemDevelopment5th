@@ -20,12 +20,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov ruff
+          pip install pytest pytest-cov ruff pytest-benchmark
 
       - name: Run lint (ruff)
         run: |
           ruff check src tests
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: |
           pytest --cov=src
+
+      - name: Run performance tests
+        run: |
+          pytest --benchmark-only
